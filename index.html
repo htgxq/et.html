@@ -1,0 +1,112 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta name="description" content="微信跳一跳,刷分,改分,在线刷分">
+    <title>微信跳一跳1键改分！在线刷分！</title>
+	<link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<style type="text/css">.ds-payment-way{text-align:center}.ds-payment-way label{cursor:pointer;line-height:30px;display:inline-block;margin:0 15px 0 0}.ds-payment-way input[type=radio]{vertical-align:middle;margin:-2px 5px 0 0}.ds-payment-img{margin:10px 0;text-align:center}.ds-payment-img img{margin:0 auto;width:185px;height:185px}.ds-payment-img #qrCode_1{display:none}.ds-payment-img #qrCode_2{display:none}.ds-payment-img .qrcode-border{margin:0 auto;border-radius:29.97px;width:236.89px;height:236.89px;padding:18.05px}.ds-payment-img .qrcode-tip{width:48.13px;position:relative;margin:0 auto;font-size:14px;font-weight:700;background:#fff;height:15px;line-height:15px;margin-top:-12px}#t-bei{width:100%;height:100%;position:fixed;top:0;left:0;background-color:#2d2d2d;z-index:100;opacity:.5}#t-opo{background:#fff;position:fixed;z-index:7000;width:334px;top:50%;left:50%;margin:-190px 0 0 -167px}#t-opo-title{height:30px;padding-left:10px;line-height:30px;border-bottom:1px solid #ddd}#t-opo-content{padding:10px}#tca,#tcaguan,#fenguan,#saoguan{position:absolute;right:10px;top:6px;font-size:12px}</style>
+</head>
+<body>
+    <div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<h2>微信跳一跳1键改分</h2>
+			<h3>本程序</h3>
+			<p style="color:red">2018年1月23日 更新了多个分数，在测试分数的过程中，封了一个号，各位注意点吧<br>[注意事项]不建议依次从低刷到高，你跳着刷，等到刷不动了，再回来刷一下低分的</p><hr>
+				<fieldset>
+					<label>SESSION_ID：(不会获取的</label></br>
+					<input class="form-control" type="text" id="sessionid"/></br>
+					<label>分数：</label></br>
+					<select class="form-control" id="score">
+					<option value="210">210分</option>
+					<option value="520">520分</option>
+					<option value="584">584分</option>
+					<option value="634">634分</option>
+					<option value="734">734分</option>
+					<option value="927">927分</option>
+					<option value="1030">1030分</option>
+					<option value="1223">1223分</option>
+					<option value="1311">1311分</option>
+					<option value="1314">1314分</option>
+					<option value="1377">1377分</option>
+					<option value="1388">1388分</option>
+					</select><br>
+					<button type="submit" class="btn btn-success" onclick="build()">点我刷分！</button>
+					<a href="weixin://" class="btn btn-danger">（等待更新）</a>
+					<a href="weixin://" class="btn btn-info">等待更新</a>
+					<span class="help-block">服务器返回信息：</span><p id="result"></p><hr>
+				</fieldset>
+  <a href="http://u.wanqinet.net/x/5ece19ecm"><h3 style="color: #blue;">等待更新</h3></a><hr>
+	<a class="btn btn-default btn-lg btn-block"href="weixin://">微信跳一跳1键刷分：tt.qlike.cn</a>
+
+		<hr>
+	</div>
+</div>
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="ttqlikecn" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyso1ESVN'; 
+var conf = 'prod_b4c338df7ac1e0e4b8c81d82077d9e3c'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js" charset="UTF-8" language="javascript"></script>
+<script type="text/javascript" src="http://api.shuaqiuqiu.com/BOBApiJS.php?function=dont_need"></script>
+<script type="text/javascript">
+	function build(){
+		$("#result").html('提交中....');
+		$.ajax({
+			type:"post",
+			url: "http://tt.qlike.cn/f2.php?v=2",
+			dataType: "text",
+			data:{
+				'score1':$.trim($("#score").val()),
+				'sessionid':$.trim($("#sessionid").val()),
+			},
+			async:true,
+			success: function(a) {
+				$("#result").html(a).css('color','green');
+		
+			},
+			error: function(a) {
+				$("#result").html('请求服务器出错！可能是服务器压力过大，若1分钟没自动回复，请联系站长').css('color','red');
+			}
+		});
+	}
+	function pop() {
+		$('body').append('<div id="t-bei" ></div>'); 
+		
+		$('body').append('<div id="t-opo"><a href="javascript:void(0)" id="tca"><i class="fa fa-times"></i></a><div id="t-opo-title"><i class="fa fa-credit-card"></i>&nbsp;&nbsp;选择打赏方式</div><div id="t-opo-content"><div class="ds-payment-way"><label for="wechat"><input type="radio" id="wechat" class="reward-radio" value="0" checked="checked" name="reward-way">微信</label><label for="qqqb"><input type="radio" id="qqqb" class="reward-radio" value="1" name="reward-way">QQ钱包</label><label for="alipay"><input type="radio" id="alipay" class="reward-radio" value="2" name="reward-way">支付宝</label></div><div class="ds-payment-img"> <div class="qrcode-img qrCode_0" id="qrCode_0" style="display: block;"><div class="qrcode-border box-size" style="border: 9.02px solid rgb(60, 175, 54"><img class="qrcode-img qrCode_0" id="qrCode_0" src="http://tt.qlike.cn/img/wechat.jpg" alt="微信赞助" style="display: inline;"></div><p class="qrcode-tip">打赏</p></div><div class="qrcode-img qrCode_1" id="qrCode_1" style="display: none;"><div class="qrcode-border box-size" style="border: 9.02px solid rgb(102, 153, 204"><img class="qrcode-img qrCode_1" id="qrCode_1" src="http://tt.qlike.cn/img/qqpay.jpg" alt="QQ钱包" style="display: none;"></div><p class="qrcode-tip">打赏</p> </div> <div class="qrcode-img qrCode_2" id="qrCode_2" style="display: none;"><div class="qrcode-border box-size" style="border: 9.02px solid rgb(235, 95, 1"><img class="qrcode-img qrCode_2" id="qrCode_2" src="weixin://" alt="open wechet" style="display: none;"></div><p class="qrcode-tip">打赏</p></div></div></div></div>');
+		//打赏
+		$("#ondashang").on("click", function(){$("#dashang").slideToggle(5);});
+		$("#tca").on("click", function(){$("#dashang").slideToggle(5);});
+		$(".ds-payment-way").bind("click",function(){
+			$(".qrcode-img").hide();
+			$(".qrCode_"+$(".ds-payment-way").find("input[name=reward-way]:checked").val()).show();
+		});
+		$('#tca').click(function() {
+			$('#t-opo,#t-bei').remove();
+		});
+	};
+</script>
+<script src="https://s19.cnzz.com/z_stat.php?id=1271906651&web_id=1271906651" language="JavaScript"></script><script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  <script type="text/javascript"  src="//idm-su.baidu.com/su.js"></script>
+</body>
+</html>
